@@ -79,7 +79,7 @@
 		438F784925F3EE2600121F69 = {
 			isa = PBXGroup;
 			children = (
-				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
+				43A7286D25F404180097CC82 /* Resources */,
 				438F788D25F4001100121F69 /* Main */,
 				438F788825F3FF7F00121F69 /* Application */,
 				438F785425F3EE2700121F69 /* AstroAlbum */,
@@ -166,6 +166,14 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43A7286D25F404180097CC82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,7 +486,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6J29MK9BC;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +505,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6J29MK9BC;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
