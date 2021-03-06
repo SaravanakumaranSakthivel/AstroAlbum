@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785525F3EE2700121F69 /* AppDelegate.swift */; };
 		438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785725F3EE2700121F69 /* SceneDelegate.swift */; };
-		438F785A25F3EE2700121F69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785925F3EE2700121F69 /* ViewController.swift */; };
+		438F785A25F3EE2700121F69 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785925F3EE2700121F69 /* AlbumViewController.swift */; };
 		438F785D25F3EE2700121F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F785B25F3EE2700121F69 /* Main.storyboard */; };
 		438F785F25F3EE2B00121F69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438F785E25F3EE2B00121F69 /* Assets.xcassets */; };
 		438F786225F3EE2B00121F69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		438F785225F3EE2700121F69 /* AstroAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438F785525F3EE2700121F69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438F785725F3EE2700121F69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		438F785925F3EE2700121F69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		438F785925F3EE2700121F69 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		438F785C25F3EE2700121F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		438F785E25F3EE2B00121F69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		438F786125F3EE2B00121F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +79,9 @@
 		438F784925F3EE2600121F69 = {
 			isa = PBXGroup;
 			children = (
+				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
+				438F788D25F4001100121F69 /* Main */,
+				438F788825F3FF7F00121F69 /* Application */,
 				438F785425F3EE2700121F69 /* AstroAlbum */,
 				438F786B25F3EE2B00121F69 /* AstroAlbumTests */,
 				438F787625F3EE2B00121F69 /* AstroAlbumUITests */,
@@ -99,13 +102,9 @@
 		438F785425F3EE2700121F69 /* AstroAlbum */ = {
 			isa = PBXGroup;
 			children = (
-				438F785525F3EE2700121F69 /* AppDelegate.swift */,
-				438F785725F3EE2700121F69 /* SceneDelegate.swift */,
-				438F785925F3EE2700121F69 /* ViewController.swift */,
-				438F785B25F3EE2700121F69 /* Main.storyboard */,
-				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
-				438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */,
-				438F786325F3EE2B00121F69 /* Info.plist */,
+				438F788F25F4003200121F69 /* Models */,
+				438F788E25F4002700121F69 /* ViewModels */,
+				438F788C25F3FFE200121F69 /* ViewController */,
 			);
 			path = AstroAlbum;
 			sourceTree = "<group>";
@@ -126,6 +125,47 @@
 				438F787925F3EE2B00121F69 /* Info.plist */,
 			);
 			path = AstroAlbumUITests;
+			sourceTree = "<group>";
+		};
+		438F788825F3FF7F00121F69 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				438F785525F3EE2700121F69 /* AppDelegate.swift */,
+				438F785725F3EE2700121F69 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		438F788C25F3FFE200121F69 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				438F785925F3EE2700121F69 /* AlbumViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		438F788D25F4001100121F69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				438F786325F3EE2B00121F69 /* Info.plist */,
+				438F785B25F3EE2700121F69 /* Main.storyboard */,
+				438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		438F788E25F4002700121F69 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		438F788F25F4003200121F69 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				438F785A25F3EE2700121F69 /* ViewController.swift in Sources */,
+				438F785A25F3EE2700121F69 /* AlbumViewController.swift in Sources */,
 				438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */,
 				438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */,
 			);
@@ -438,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6J29MK9BC;
-				INFOPLIST_FILE = AstroAlbum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6J29MK9BC;
-				INFOPLIST_FILE = AstroAlbum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
