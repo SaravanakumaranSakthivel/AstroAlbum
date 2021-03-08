@@ -10,11 +10,15 @@
 		438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785525F3EE2700121F69 /* AppDelegate.swift */; };
 		438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785725F3EE2700121F69 /* SceneDelegate.swift */; };
 		438F785A25F3EE2700121F69 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785925F3EE2700121F69 /* AlbumViewController.swift */; };
-		438F785D25F3EE2700121F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F785B25F3EE2700121F69 /* Main.storyboard */; };
 		438F785F25F3EE2B00121F69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438F785E25F3EE2B00121F69 /* Assets.xcassets */; };
 		438F786225F3EE2B00121F69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */; };
 		438F786D25F3EE2B00121F69 /* AstroAlbumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F786C25F3EE2B00121F69 /* AstroAlbumTests.swift */; };
 		438F787825F3EE2B00121F69 /* AstroAlbumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F787725F3EE2B00121F69 /* AstroAlbumUITests.swift */; };
+		43A7287625F411F70097CC82 /* AstroAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7287525F411F70097CC82 /* AstroAlbumCell.swift */; };
+		43A7288125F4334A0097CC82 /* AstroAlbumHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7288025F4334A0097CC82 /* AstroAlbumHeaderView.swift */; };
+		43A7288925F4AED30097CC82 /* splashscreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43A7288825F4AED30097CC82 /* splashscreen.jpg */; };
+		43A7288E25F4B0750097CC82 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43A7288D25F4B0750097CC82 /* 0.jpg */; };
+		43A7289325F5B25B0097CC82 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7289225F5B25B0097CC82 /* AlbumDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 		438F785525F3EE2700121F69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438F785725F3EE2700121F69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		438F785925F3EE2700121F69 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
-		438F785C25F3EE2700121F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		438F785E25F3EE2B00121F69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		438F786125F3EE2B00121F69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		438F786325F3EE2B00121F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		438F787325F3EE2B00121F69 /* AstroAlbumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroAlbumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		438F787725F3EE2B00121F69 /* AstroAlbumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumUITests.swift; sourceTree = "<group>"; };
 		438F787925F3EE2B00121F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43A7287525F411F70097CC82 /* AstroAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumCell.swift; sourceTree = "<group>"; };
+		43A7288025F4334A0097CC82 /* AstroAlbumHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumHeaderView.swift; sourceTree = "<group>"; };
+		43A7288825F4AED30097CC82 /* splashscreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splashscreen.jpg; sourceTree = "<group>"; };
+		43A7288D25F4B0750097CC82 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		43A7289225F5B25B0097CC82 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		438F785425F3EE2700121F69 /* AstroAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				43A7287425F411B80097CC82 /* Views */,
 				438F788F25F4003200121F69 /* Models */,
 				438F788E25F4002700121F69 /* ViewModels */,
 				438F788C25F3FFE200121F69 /* ViewController */,
@@ -140,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				438F785925F3EE2700121F69 /* AlbumViewController.swift */,
+				43A7289225F5B25B0097CC82 /* AlbumDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -148,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				438F786325F3EE2B00121F69 /* Info.plist */,
-				438F785B25F3EE2700121F69 /* Main.storyboard */,
 				438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
@@ -172,8 +181,19 @@
 			isa = PBXGroup;
 			children = (
 				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
+				43A7288D25F4B0750097CC82 /* 0.jpg */,
+				43A7288825F4AED30097CC82 /* splashscreen.jpg */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		43A7287425F411B80097CC82 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43A7287525F411F70097CC82 /* AstroAlbumCell.swift */,
+				43A7288025F4334A0097CC82 /* AstroAlbumHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +299,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A7288E25F4B0750097CC82 /* 0.jpg in Resources */,
 				438F786225F3EE2B00121F69 /* LaunchScreen.storyboard in Resources */,
 				438F785F25F3EE2B00121F69 /* Assets.xcassets in Resources */,
-				438F785D25F3EE2700121F69 /* Main.storyboard in Resources */,
+				43A7288925F4AED30097CC82 /* splashscreen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				438F785A25F3EE2700121F69 /* AlbumViewController.swift in Sources */,
+				43A7287625F411F70097CC82 /* AstroAlbumCell.swift in Sources */,
 				438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */,
 				438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */,
+				43A7288125F4334A0097CC82 /* AstroAlbumHeaderView.swift in Sources */,
+				43A7289325F5B25B0097CC82 /* AlbumDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,14 +368,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		438F785B25F3EE2700121F69 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				438F785C25F3EE2700121F69 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		438F786025F3EE2B00121F69 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
