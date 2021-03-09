@@ -23,6 +23,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         let activityIndicator = UIActivityIndicatorView(frame: .zero)
         activityIndicator.color = .white
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()
     
@@ -30,7 +31,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "splashscreen.jpg")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .white
@@ -46,6 +47,8 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         self.setupConstraints()
     }
     
+  
+    
     func setupConstraints() {
         
 //        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -57,8 +60,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
 //        label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 30.0).isActive = true
 //        label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20.0).isActive = true
 //        label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 20.0).isActive = true
-//
-//
+
         activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 

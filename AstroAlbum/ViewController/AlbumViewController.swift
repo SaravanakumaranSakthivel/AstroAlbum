@@ -10,9 +10,9 @@ import UIKit
 class AlbumViewController: UIViewController {
     
 
-
+    var networkIndicator : NetworkActivityIndicator!
     weak var collectionView: UICollectionView!
-    var data: [Int] = Array(0..<10)
+    var data = [AstroAlbumModel]()
 
     override func loadView() {
         super.loadView()
@@ -35,12 +35,13 @@ class AlbumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .gray
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.alwaysBounceVertical = true
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = .clear
         
         // Register Collection view cell
         self.collectionView.register(AstroAlbumCell.self, forCellWithReuseIdentifier: AstroAlbumCell.identifier)
@@ -50,7 +51,56 @@ class AlbumViewController: UIViewController {
                                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                      withReuseIdentifier: AstroAlbumHeaderView.identifier)
         
+        
+        networkIndicator = NetworkActivityIndicator(title: nil, message: "Please wait...", preferredStyle: .alert)
+        self.present(self.networkIndicator, animated: false, completion: nil)
+        
+        //Call APOD service and collect last 30 days data
+        self.getAstroAlbumData()
     }
+    
+    func getAstroAlbumData() {
+        
+        let date = Date()
+        let currentDate = date.getFormattedDate(format: "yyyy-MM-dd")
+        
+        let fromDate = Calendar.current.date(byAdding: .day , value: -10 , to: date)
+        guard let formattedFromDate = fromDate?.getFormattedDate(format: "yyyy-MM-dd") else { return }
+        
+        NetworkHelper.getAstroAlbumForTheDateRange(startDate: formattedFromDate,
+                                                   endDate: currentDate, handler: { response, error in
+                                                    self.networkIndicator.stopAnimating()
+                                                    if error != nil {
+                                                        print("Error in Loading APOD")
+                                                    }
+                                                    guard let response = response else  {
+                                                        return
+                                                    }
+                                                    self.data = response
+                                                    self.reloadCollectionView()
+        })
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func getAndUpdateAstroPOD() {
+        NetworkHelper.getAstroPictureOfTheDay(handler: { response, error in
+            if error != nil {
+                print("Error in Loading APOD")
+            }
+            guard let response = response else  {
+                print("Inside guard statement")
+                return
+            }
+            print("Response ==== \(response)")
+        })
+        
+    }
+
     
     override func viewDidLayoutSubviews() {
           super.viewDidLayoutSubviews()
@@ -128,4 +178,13 @@ extension AlbumViewController: UICollectionViewDelegateFlowLayout {
         return 5
     }
         
+}
+
+
+extension Date {
+   func getFormattedDate(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
 }

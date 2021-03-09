@@ -9,7 +9,7 @@ import UIKit
 
 class AstroAlbumCell: UICollectionViewCell {
     static let identifier = "albumidentifier"
-
+    
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Picture of the DayPicture of the DayPicture of the DayPicture of the DayPicture of the Day"
@@ -26,12 +26,11 @@ class AstroAlbumCell: UICollectionViewCell {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activityIndicator
     }()
-
+    
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "splashscreen.jpg")
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
@@ -42,29 +41,29 @@ class AstroAlbumCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-//           self.reset()
+        //           self.reset()
         self.configureView()
-       }
-
-       required init?(coder aDecoder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
-
-       override func prepareForReuse() {
-           super.prepareForReuse()
-           self.reset()
-       }
-//
-       func reset() {
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.reset()
+    }
+    
+    func reset() {
         self.label.textAlignment = .left
-       }
+    }
     
     func configureView() {
         contentView.addSubview(label)
         contentView.addSubview(imageView)
         contentView.addSubview(activityIndicator)
         contentView.bringSubviewToFront(label)
-
+        
         activityIndicator.startAnimating()
         self.setupConstraints()
     }
@@ -86,7 +85,7 @@ class AstroAlbumCell: UICollectionViewCell {
         
         activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-
+        
     }
-
+    
 }
