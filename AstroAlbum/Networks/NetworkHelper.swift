@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-var imageCache = NSCache<NSString, UIImage>()
+var imageCache = NSCache<AnyObject, UIImage>()
 
 struct NetworkHelper {
     
@@ -24,9 +24,6 @@ struct NetworkHelper {
     internal static func getAstroAlbumForTheDateRange(startDate:String,
                                                       endDate: String,
                                                       handler:@escaping([AstroAlbumModel]?, Error?) -> Void) {
-        
-        //        https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2021-02-15&end_date=2021-03-01&thumbs=true
-        
         let endpoint = EndPoint.getEndPointForTheDateRange(startDate: startDate, endDate: endDate)
         AstroAlbumRequest.getAstroAlbumFortheRange(endpoint, then: { response, error in
             handler(response, error)
@@ -36,9 +33,10 @@ struct NetworkHelper {
     }
     
     
-    internal static func downloadImage(for imageUrl: String, handler: @escaping(UIImage?, Error?) -> Void) {
+    internal static func downloadImage(for imageUrl: String,
+                                       handler: @escaping(UIImage?, Error?) -> Void) {
         
-        if let image = imageCache.value(forKey: imageUrl) as? UIImage{
+        if let image = imageCache.object(forKey: imageUrl as AnyObject) {
             handler(image, nil)
         } else {
             
@@ -51,13 +49,13 @@ struct NetworkHelper {
                 if error != nil {
                     handler(nil, error)
                 }
-                if let data = data {
-                    let image = UIImage(data: data)
-                    imageCache.setValue(image, forKey: imageUrl)
+                if let data = data,
+                   let image = UIImage(data: data) {
+                    imageCache.setObject(image, forKey: imageUrl as AnyObject)
                     handler(image, nil)
                 }
                 
-            })
+            }).resume()
         }
         
     }

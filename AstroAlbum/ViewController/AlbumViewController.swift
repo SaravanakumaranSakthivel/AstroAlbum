@@ -17,6 +17,10 @@ class AlbumViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        self.navigationController?.navigationBar.barTintColor = .green
+        self.navigationController?.hidesBarsOnSwipe = true
+        self.title = "Astronomy Album"
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 2,
@@ -37,7 +41,8 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .gray
+        self.view.backgroundColor = .clear
+        self.view.backgroundColor = .white
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.alwaysBounceVertical = true
@@ -64,14 +69,19 @@ class AlbumViewController: UIViewController {
         let date = Date()
         let currentDate = date.getFormattedDate(format: "yyyy-MM-dd")
         
-        let fromDate = Calendar.current.date(byAdding: .day , value: -10 , to: date)
+        let fromDate = Calendar.current.date(byAdding: .day , value: -30 , to: date)
         guard let formattedFromDate = fromDate?.getFormattedDate(format: "yyyy-MM-dd") else { return }
         
         NetworkHelper.getAstroAlbumForTheDateRange(startDate: formattedFromDate,
                                                    endDate: currentDate, handler: { response, error in
                                                     self.networkIndicator.stopAnimating()
                                                     if error != nil {
+                                                        let alert = UIAlertController(title: "No Data Found", message: "Please choose date between 1 to 100", preferredStyle: .alert)
+
+                                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                                        self.present(alert, animated: true)
                                                         print("Error in Loading APOD")
+                                                        
                                                     }
                                                     guard let response = response else  {
                                                         return
@@ -121,7 +131,9 @@ extension AlbumViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AstroAlbumCell.identifier, for: indexPath) as? AstroAlbumCell else {
             fatalError("Unable to load Astro album cell")
         }
-        cell.configureView()
+        let dataModal = self.data[indexPath.row]
+        let cellViewModel = AstroAlbumCellViewModel(dataModal)
+        cell.cellVModal = cellViewModel        
         return cell
     }
     
@@ -161,9 +173,9 @@ extension AlbumViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 2,
-                            left: 5,
+                            left: 10,
                             bottom: 2,
-                            right: 5)
+                            right: 10)
     }
 
     func collectionView(_ collectionView: UICollectionView,

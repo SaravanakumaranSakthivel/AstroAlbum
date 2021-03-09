@@ -24,7 +24,7 @@
 		43A728A725F5D08F0097CC82 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728A625F5D08F0097CC82 /* Endpoint.swift */; };
 		43A728AC25F5D2790097CC82 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728AB25F5D2790097CC82 /* NetworkHelper.swift */; };
 		43A728B125F5D3EC0097CC82 /* AstroAlbumPODRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728B025F5D3EC0097CC82 /* AstroAlbumPODRequest.swift */; };
-		43A728B625F5E5EF0097CC82 /* AstroPOD_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728B525F5E5EF0097CC82 /* AstroPOD_Model.swift */; };
+		43A728B625F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728B525F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift */; };
 		43A728BB25F6D3DC0097CC82 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728BA25F6D3DC0097CC82 /* NetworkActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,7 @@
 		43A728A625F5D08F0097CC82 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		43A728AB25F5D2790097CC82 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		43A728B025F5D3EC0097CC82 /* AstroAlbumPODRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumPODRequest.swift; sourceTree = "<group>"; };
-		43A728B525F5E5EF0097CC82 /* AstroPOD_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroPOD_Model.swift; sourceTree = "<group>"; };
+		43A728B525F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumCellViewModel.swift; sourceTree = "<group>"; };
 		43A728BA25F6D3DC0097CC82 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +182,7 @@
 		438F788E25F4002700121F69 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				43A728B525F5E5EF0097CC82 /* AstroPOD_Model.swift */,
+				43A728B525F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				43A7287625F411F70097CC82 /* AstroAlbumCell.swift in Sources */,
 				43A7289825F5BD060097CC82 /* AstroAlbumModel.swift in Sources */,
 				438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */,
-				43A728B625F5E5EF0097CC82 /* AstroPOD_Model.swift in Sources */,
+				43A728B625F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift in Sources */,
 				438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */,
 				43A7288125F4334A0097CC82 /* AstroAlbumHeaderView.swift in Sources */,
 				43A7289325F5B25B0097CC82 /* AlbumDetailViewController.swift in Sources */,

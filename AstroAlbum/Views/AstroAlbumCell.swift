@@ -10,19 +10,25 @@ import UIKit
 class AstroAlbumCell: UICollectionViewCell {
     static let identifier = "albumidentifier"
     
+    var cellVModal : AstroAlbumCellViewModel? {
+        didSet {
+            self.updateUI()
+        }
+    }
+    
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Picture of the DayPicture of the DayPicture of the DayPicture of the DayPicture of the Day"
-        label.textAlignment = .left
+        label.textAlignment = .justified
         label.numberOfLines = 2
-        label.textColor = .white
+        label.textColor = .green
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(frame: .zero)
-        activityIndicator.color = .white
+        activityIndicator.color = .darkGray
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activityIndicator
     }()
@@ -35,13 +41,13 @@ class AstroAlbumCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
         
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        //           self.reset()
+        self.reset()
         self.configureView()
     }
     
@@ -56,6 +62,7 @@ class AstroAlbumCell: UICollectionViewCell {
     
     func reset() {
         self.label.textAlignment = .left
+        self.imageView.image = nil
     }
     
     func configureView() {
@@ -64,8 +71,34 @@ class AstroAlbumCell: UICollectionViewCell {
         contentView.addSubview(activityIndicator)
         contentView.bringSubviewToFront(label)
         
+        self.layer.borderWidth = 2.0
+        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+
         activityIndicator.startAnimating()
         self.setupConstraints()
+    }
+    
+    func updateUI() {
+        self.label.text = self.cellVModal?.title
+        
+        self.activityIndicator.startAnimating()
+        
+        if self.cellVModal?.image == nil {
+            self.cellVModal?.downloadImage {
+                DispatchQueue.main.async {
+                    guard let image = self.cellVModal?.image else {
+                        self.imageView.image = UIImage(named: "no_image_available")
+                        self.activityIndicator.stopAnimating()
+                        return
+                    }
+                    self.imageView.image = image
+                    self.activityIndicator.stopAnimating()
+                }
+                
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -79,13 +112,14 @@ class AstroAlbumCell: UICollectionViewCell {
         imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         
+
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10.0).isActive = true
-        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 10.0).isActive = true
+        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0.0).isActive = true
         
         activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        
     }
     
 }
+

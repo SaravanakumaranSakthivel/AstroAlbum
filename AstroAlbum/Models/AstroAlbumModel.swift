@@ -15,5 +15,6 @@ struct AstroAlbumModel : Codable{
     let service_version: String?
     let title: String?
     let url: String?
+    let thumbnail_url: String?
     
 }
