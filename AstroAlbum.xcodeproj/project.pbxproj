@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		43047CDE25F8AB45008D6BB7 /* ConstantsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43047CDD25F8AB45008D6BB7 /* ConstantsTest.swift */; };
 		43047CE225F8AB72008D6BB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728A125F5BF480097CC82 /* Constants.swift */; };
+		434E52A625F8ADBB00388649 /* AstroAlbumCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E52A525F8ADBB00388649 /* AstroAlbumCellViewModelTests.swift */; };
+		434E52AA25F8AE0100388649 /* AstroAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7289725F5BD060097CC82 /* AstroAlbumModel.swift */; };
+		434E52AE25F8AE0500388649 /* AstroAlbumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728B525F5E5EF0097CC82 /* AstroAlbumCellViewModel.swift */; };
+		434E52B225F8AE2E00388649 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728AB25F5D2790097CC82 /* NetworkHelper.swift */; };
+		434E52B625F8B07700388649 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728A625F5D08F0097CC82 /* Endpoint.swift */; };
+		434E52BA25F8B2A500388649 /* AstroAlbumPODRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728B025F5D3EC0097CC82 /* AstroAlbumPODRequest.swift */; };
 		438F785625F3EE2700121F69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785525F3EE2700121F69 /* AppDelegate.swift */; };
 		438F785825F3EE2700121F69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785725F3EE2700121F69 /* SceneDelegate.swift */; };
 		438F785A25F3EE2700121F69 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F785925F3EE2700121F69 /* AlbumViewController.swift */; };
@@ -47,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		43047CDD25F8AB45008D6BB7 /* ConstantsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTest.swift; sourceTree = "<group>"; };
+		434E52A525F8ADBB00388649 /* AstroAlbumCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumCellViewModelTests.swift; sourceTree = "<group>"; };
 		438F785225F3EE2700121F69 /* AstroAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438F785525F3EE2700121F69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		438F785725F3EE2700121F69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +146,7 @@
 				438F786C25F3EE2B00121F69 /* AstroAlbumTests.swift */,
 				438F786E25F3EE2B00121F69 /* Info.plist */,
 				43047CDD25F8AB45008D6BB7 /* ConstantsTest.swift */,
+				434E52A525F8ADBB00388649 /* AstroAlbumCellViewModelTests.swift */,
 			);
 			path = AstroAlbumTests;
 			sourceTree = "<group>";
@@ -380,8 +388,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434E52B225F8AE2E00388649 /* NetworkHelper.swift in Sources */,
+				434E52BA25F8B2A500388649 /* AstroAlbumPODRequest.swift in Sources */,
 				438F786D25F3EE2B00121F69 /* AstroAlbumTests.swift in Sources */,
+				434E52B625F8B07700388649 /* Endpoint.swift in Sources */,
 				43047CDE25F8AB45008D6BB7 /* ConstantsTest.swift in Sources */,
+				434E52AE25F8AE0500388649 /* AstroAlbumCellViewModel.swift in Sources */,
+				434E52A625F8ADBB00388649 /* AstroAlbumCellViewModelTests.swift in Sources */,
+				434E52AA25F8AE0100388649 /* AstroAlbumModel.swift in Sources */,
 				43047CE225F8AB72008D6BB7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
