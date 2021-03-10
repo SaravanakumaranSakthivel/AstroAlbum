@@ -19,12 +19,7 @@ struct EndPoint {
 
 
 extension EndPoint {
-    
-    static func getPicOfTheDay() -> EndPoint {
-        return EndPoint(path: Constants.apodPath,
-                        queryItems: [URLQueryItem(name:"api_key", value:Constants.apiKey)])
-    }
-    
+        
     static func getEndPointForTheDateRange(startDate:String, endDate: String) -> EndPoint {
         return EndPoint(path: Constants.apodPath,
                         queryItems: [URLQueryItem(name:"api_key", value:Constants.apiKey),
@@ -33,9 +28,6 @@ extension EndPoint {
                                     URLQueryItem(name: "thumbs", value: "true")])
     }
 }
-
-//https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2021-02-15&end_date=2021-03-01&thumbs=true
-
 
 extension EndPoint {
     // We still have to keep 'url' as an optional, since we're
