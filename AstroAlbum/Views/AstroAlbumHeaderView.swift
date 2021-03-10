@@ -7,6 +7,16 @@
 
 import UIKit
 
+/*
+   Headerview Delgate method
+    
+    - onClickReloadData : This gets triggered after user chooses number of days and tap button to reload the data.
+        parameter : number of days
+ 
+    - didTapOnFilter: This gets called when user filter option (All, Image, Video). This helps to filter media by its type.
+        parameter : filterBY enum value
+    
+ */
 protocol HeaderViewDelegate {
     func onClickReloadData(_ numberOfDays: Int)
     func didTapOnFilter(_ filterBy: FilterType)
@@ -32,7 +42,6 @@ class AstroAlbumHeaderView: UICollectionReusableView {
     
     private let button: UIButton = {
         let button = UIButton(type: .custom)
-        
         button.setTitle("Tap to load last 10 days media", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
         button.setTitleColor(.black, for: .normal)
@@ -54,7 +63,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         slider.tintColor = .green
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.minimumValue = 1
-        slider.maximumValue = 150
+        slider.maximumValue = 200
         slider.value = 10
         slider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
         return slider
@@ -62,7 +71,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
     
     private let noteLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Note: By default, Displaying last 10 days astronomy medias\n Min value - 1 & Max Value - 200"
+        label.text = "Note: By default, Displaying last 30 days astronomy medias\n Min value - 1 & Max Value - 200"
         label.font = .italicSystemFont(ofSize: 10)
         label.textAlignment = .left
         label.textColor = .black

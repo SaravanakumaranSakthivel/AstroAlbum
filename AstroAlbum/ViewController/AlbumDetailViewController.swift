@@ -174,7 +174,7 @@ class AlbumDetailViewController: UIViewController {
     }
     
     
-    // Add constraint 
+    // Add constraint
     func setupConstraints() {
         
         activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
@@ -223,6 +223,5 @@ class AlbumDetailViewController: UIViewController {
         allConstraints += horizontalConstrain5
         
         NSLayoutConstraint.activate(allConstraints)
-        
     }
 }

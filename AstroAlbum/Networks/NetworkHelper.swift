@@ -12,15 +12,12 @@ var imageCache = NSCache<AnyObject, UIImage>()
 
 struct NetworkHelper {
     
-    
-    internal static func getAstroPictureOfTheDay(handler: @escaping(AstroAlbumModel?, Error?) ->Void) {
-        let endPoint = EndPoint.getPicOfTheDay()
-        
-        AstroAlbumRequest.getAPOD(endPoint, then: { astroPOD, error in
-            handler(astroPOD, error)
-        })
-    }
-    
+    /*  This is a helper method helps to download Album data for the particular date range.
+        parameters :
+            startDate - Date range from when we are trying to fetch the album information.
+            endDate - current date of the device
+            handler - this returns [AstroAlbumModel] and Error. 
+     */
     internal static func getAstroAlbumForTheDateRange(startDate:String,
                                                       endDate: String,
                                                       handler:@escaping([AstroAlbumModel]?, Error?) -> Void) {
@@ -29,26 +26,35 @@ struct NetworkHelper {
             handler(response, error)
             
         })
-        
     }
     
+    
+    /*  This is a helper method to download image url and convert image data into uiimage and cache the resposne
+        parameters :
+            imageUrl - Image url to download
+            completionHandler - completion handler returns UIImage and Error.
+     */
     
     internal static func downloadImage(for imageUrl: String,
                                        handler: @escaping(UIImage?, Error?) -> Void) {
         
+        // Check image is in the cache and return image if found.
         if let image = imageCache.object(forKey: imageUrl as AnyObject) {
             handler(image, nil)
         } else {
-            
+            // Make sure we have image url to download image if not return in guard else.
             guard let url = URL(string: imageUrl) else {
                 return
             }
             
+            // Start a URL session to download the image.
             URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+                
                 
                 if error != nil {
                     handler(nil, error)
                 }
+                // if there is no error and data found convert data into UIImage and keep it cache and return the handler with image
                 if let data = data,
                    let image = UIImage(data: data) {
                     imageCache.setObject(image, forKey: imageUrl as AnyObject)
