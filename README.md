@@ -6,6 +6,13 @@ Project to display all the Astronomy pictures and videos captured by NASA.
 ### Device Type : iPhone 
 
 
+### API details
+
+* Source: https://api.nasa.gov/
+
+* Resource: /planetary/apod 
+
+* API reference: https://github.com/nasa/apod-api 
 
 # Features  
 ### Album 
@@ -37,19 +44,16 @@ Project to display all the Astronomy pictures and videos captured by NASA.
 <img width="505" alt="Screenshot 2021-03-10 at 1 41 32 AM" src="https://user-images.githubusercontent.com/8506555/110590102-57298f00-8145-11eb-899b-cf26b0182411.png">
 
 
+
+
+
+
 # Future Improvements 
 
 * Detail screen can be implemented with scorllview and expand the view depends on the explanation text size. 
 
 
 
-### API details
-
-* Source: https://api.nasa.gov/
-
-* Resource: /planetary/apod 
-
-* API reference: https://github.com/nasa/apod-api 
 
 
 
