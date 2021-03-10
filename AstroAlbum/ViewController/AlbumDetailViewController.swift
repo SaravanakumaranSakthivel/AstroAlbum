@@ -9,8 +9,11 @@ import UIKit
 
 class AlbumDetailViewController: UIViewController {
     
+    // Declare view model, Assign view model before navigate to detailview controller.
     var viewModel:  AstroAlbumCellViewModel?
     
+    // Activity indicator added on top of UIImageview,
+    // This helps to indicate image download is in progress in the background.
     private let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(frame: .zero)
         activityIndicator.color = .black
@@ -18,7 +21,7 @@ class AlbumDetailViewController: UIViewController {
         return activityIndicator
     }()
     
-    
+    // Imageview, This displays image url for the image media type and thumb url for video.
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +35,7 @@ class AlbumDetailViewController: UIViewController {
         return imageView
     }()
     
+    // Title label
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title: "
@@ -44,6 +48,7 @@ class AlbumDetailViewController: UIViewController {
         return label
     }()
     
+    // Date when the image or video captured
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "Captured On: "
@@ -57,6 +62,7 @@ class AlbumDetailViewController: UIViewController {
         return label
     }()
     
+    // Media label declration
     private let mediaTypeLabel:  UILabel = {
         let label = UILabel()
         label.text = "Media Type: "
@@ -70,6 +76,7 @@ class AlbumDetailViewController: UIViewController {
         return label
     }()
     
+    // Description Label declration
     private let descriptionLabel :  UILabel = {
         let label = UILabel()
         label.text = "Media Type: "
@@ -82,21 +89,28 @@ class AlbumDetailViewController: UIViewController {
         return label
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup navigation changes.
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.navigationBar.isTranslucent = false;
-        
+        self.navigationController?.navigationBar.tintColor = .black
         self.view.backgroundColor = .lightGray
+        
+        // Add all subview part of this configureview method.
         self.configureView()
     }
     
     
+    // This method helps to update view model information to UI
     func updateUI() {
         guard let viewModel = self.viewModel else {
             return
         }
         
+        // call downloadImage method in the View model and update the UI
         if viewModel.image == nil {
             self.activityIndicator.startAnimating()
             viewModel.downloadImage {
@@ -112,6 +126,7 @@ class AlbumDetailViewController: UIViewController {
             }
         }
         
+        //Define media type label text depends on media type.
         var mediaTypeValue = "Image"
         self.imageView.isUserInteractionEnabled = false
         if let mediaType = viewModel.mediaType,
@@ -120,22 +135,29 @@ class AlbumDetailViewController: UIViewController {
             self.imageView.isUserInteractionEnabled = true
         }
         
+        // Update all label with view model value
         self.mediaTypeLabel.text = String("\(self.mediaTypeLabel.text ?? "") \(mediaTypeValue)")
         self.dateLabel.text = String("\(self.dateLabel.text ?? "") \(viewModel.date ?? "")")
         self.titleLabel.text = String("\(self.titleLabel.text ?? "") \(viewModel.title ?? "" )")
         self.descriptionLabel.text = viewModel.explanation
     }
     
+    
+    // This is the method gets called when tap event happen in UIImageview
     @objc func onImageTap(_ sender: UITapGestureRecognizer? = nil) {
         
         guard let youtubURL = viewModel?.url else {
+            let alert = UIAlertController(title: "Sorry!!", message: "No video URL found.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
             return
         }
         if let url = URL(string: youtubURL) {
             UIApplication.shared.open(url)
         }
     }
-
+    
+    // Setup UI here
     func configureView() {
         self.view.addSubview(imageView)
         self.view.addSubview(titleLabel)
@@ -152,6 +174,7 @@ class AlbumDetailViewController: UIViewController {
     }
     
     
+    // Add constraint 
     func setupConstraints() {
         
         activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
