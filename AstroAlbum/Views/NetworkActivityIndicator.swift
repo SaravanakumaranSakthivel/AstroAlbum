@@ -24,6 +24,12 @@ class NetworkActivityIndicator: UIAlertController {
         self.view.addSubview(loadingIndicator)
     }
     
+    func startAnimating() {
+        DispatchQueue.main.async {
+            self.loadingIndicator?.startAnimating()
+        }
+    }
+    
     func stopAnimating() {
         
         DispatchQueue.main.async {

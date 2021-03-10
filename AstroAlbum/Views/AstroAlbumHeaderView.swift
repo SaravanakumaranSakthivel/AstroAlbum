@@ -7,8 +7,16 @@
 
 import UIKit
 
+protocol HeaderViewDelegate {
+    func onClickReloadData(_ numberOfDays: Int)
+    func didTapOnFilter(_ filterBy: FilterType)
+}
+
 class AstroAlbumHeaderView: UICollectionReusableView {
     static let identifier = "albumHeader"
+    var delegate : HeaderViewDelegate? = nil
+    
+    var numberOfDays = 10
     
     private let contentView: UIView = {
         let view = UIView(frame: .zero)
@@ -30,6 +38,7 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .green
+        button.addTarget(self, action: #selector(onClickButton(_:)), for: .touchUpInside)
         
         button.layer.borderWidth = 2.0
         button.layer.borderColor = UIColor.gray.cgColor
@@ -48,7 +57,6 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         slider.maximumValue = 150
         slider.value = 10
         slider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
-
         return slider
     }()
     
@@ -99,25 +107,34 @@ class AstroAlbumHeaderView: UICollectionReusableView {
     
     
     @objc func segmentControl(_ segmentedControl: UISegmentedControl) {
+        var filterType = FilterType.all
+        
        switch (segmentedControl.selectedSegmentIndex) {
           case 0:
-             // First segment tapped
-          break
+            filterType = .all
+           break
           case 1:
-             // Second segment tapped
+            filterType = .image
             break
           case 2:
-          // Second segment tapped
+            filterType = .video
           break
           default:
           break
        }
+        delegate?.didTapOnFilter(filterType)
     }
 
     @objc func sliderValueDidChange(_ slider: UISlider) {
-        let buttonTitle = "Tap to load last \(Int(slider.value)) days media"
+        numberOfDays = Int(slider.value)
+        let buttonTitle = "Tap to load last \(numberOfDays) days media"
         self.button.setTitle(buttonTitle, for: .normal)
     }
+    
+    @objc func onClickButton(_ sender: UIButton) {
+        delegate?.onClickReloadData(numberOfDays)
+    }
+    
     
     
     func setupConstraints() {
@@ -176,6 +193,12 @@ class AstroAlbumHeaderView: UICollectionReusableView {
         super.layoutSubviews()
         self.frame = bounds
     }
-    
 
+}
+
+
+enum FilterType {
+    case all 
+    case image
+    case video
 }

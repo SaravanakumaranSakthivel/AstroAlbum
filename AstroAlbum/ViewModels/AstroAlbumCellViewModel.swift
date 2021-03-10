@@ -15,13 +15,17 @@ class AstroAlbumCellViewModel {
     internal let explanation: String?
     internal let mediaType: MediaType?
     internal let thumbURL: String?
+    internal let date: String?
+    internal let url: String?
     
     init(_ astroAlbumModel: AstroAlbumModel) {
         self.title = astroAlbumModel.title
         self.imageURL = astroAlbumModel.url
         self.explanation = astroAlbumModel.explanation
         self.thumbURL = astroAlbumModel.thumbnail_url
+        self.date = astroAlbumModel.date
         self.image = nil
+        self.url = astroAlbumModel.url
         
         guard let mediaType = astroAlbumModel.media_type,
               mediaType == "image" else {

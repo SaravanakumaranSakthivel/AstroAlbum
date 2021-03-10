@@ -30,6 +30,7 @@ class AstroAlbumCell: UICollectionViewCell {
         let activityIndicator = UIActivityIndicatorView(frame: .zero)
         activityIndicator.color = .darkGray
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()
     
@@ -40,7 +41,6 @@ class AstroAlbumCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        
         imageView.backgroundColor = .clear
         return imageView
     }()
@@ -70,6 +70,7 @@ class AstroAlbumCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(activityIndicator)
         contentView.bringSubviewToFront(label)
+        imageView.image = UIImage(named: "no_image_available")
         
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor.gray.cgColor
@@ -96,7 +97,6 @@ class AstroAlbumCell: UICollectionViewCell {
                     self.imageView.image = image
                     self.activityIndicator.stopAnimating()
                 }
-                
             }
         }
     }

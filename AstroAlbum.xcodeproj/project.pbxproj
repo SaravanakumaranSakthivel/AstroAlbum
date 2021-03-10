@@ -16,8 +16,6 @@
 		438F787825F3EE2B00121F69 /* AstroAlbumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438F787725F3EE2B00121F69 /* AstroAlbumUITests.swift */; };
 		43A7287625F411F70097CC82 /* AstroAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7287525F411F70097CC82 /* AstroAlbumCell.swift */; };
 		43A7288125F4334A0097CC82 /* AstroAlbumHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7288025F4334A0097CC82 /* AstroAlbumHeaderView.swift */; };
-		43A7288925F4AED30097CC82 /* splashscreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43A7288825F4AED30097CC82 /* splashscreen.jpg */; };
-		43A7288E25F4B0750097CC82 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43A7288D25F4B0750097CC82 /* 0.jpg */; };
 		43A7289325F5B25B0097CC82 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7289225F5B25B0097CC82 /* AlbumDetailViewController.swift */; };
 		43A7289825F5BD060097CC82 /* AstroAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7289725F5BD060097CC82 /* AstroAlbumModel.swift */; };
 		43A728A225F5BF480097CC82 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A728A125F5BF480097CC82 /* Constants.swift */; };
@@ -61,8 +59,6 @@
 		438F787925F3EE2B00121F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43A7287525F411F70097CC82 /* AstroAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumCell.swift; sourceTree = "<group>"; };
 		43A7288025F4334A0097CC82 /* AstroAlbumHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumHeaderView.swift; sourceTree = "<group>"; };
-		43A7288825F4AED30097CC82 /* splashscreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splashscreen.jpg; sourceTree = "<group>"; };
-		43A7288D25F4B0750097CC82 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		43A7289225F5B25B0097CC82 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		43A7289725F5BD060097CC82 /* AstroAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroAlbumModel.swift; sourceTree = "<group>"; };
 		43A728A125F5BF480097CC82 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -199,8 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				438F785E25F3EE2B00121F69 /* Assets.xcassets */,
-				43A7288D25F4B0750097CC82 /* 0.jpg */,
-				43A7288825F4AED30097CC82 /* splashscreen.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -336,10 +330,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43A7288E25F4B0750097CC82 /* 0.jpg in Resources */,
 				438F786225F3EE2B00121F69 /* LaunchScreen.storyboard in Resources */,
 				438F785F25F3EE2B00121F69 /* Assets.xcassets in Resources */,
-				43A7288925F4AED30097CC82 /* splashscreen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

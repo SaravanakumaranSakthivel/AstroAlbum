@@ -13,6 +13,7 @@ class AlbumViewController: UIViewController {
     var networkIndicator : NetworkActivityIndicator!
     weak var collectionView: UICollectionView!
     var data = [AstroAlbumModel]()
+    var dataSource = [AstroAlbumModel]()
 
     override func loadView() {
         super.loadView()
@@ -35,6 +36,7 @@ class AlbumViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(collectionView)
         self.collectionView = collectionView
+    
     }
 
     override func viewDidLoad() {
@@ -61,15 +63,15 @@ class AlbumViewController: UIViewController {
         self.present(self.networkIndicator, animated: false, completion: nil)
         
         //Call APOD service and collect last 30 days data
-        self.getAstroAlbumData()
+        self.getAstroAlbumData(numberOfDays: -30)
     }
     
-    func getAstroAlbumData() {
+    func getAstroAlbumData(numberOfDays: Int) {
         
         let date = Date()
         let currentDate = date.getFormattedDate(format: "yyyy-MM-dd")
         
-        let fromDate = Calendar.current.date(byAdding: .day , value: -30 , to: date)
+        let fromDate = Calendar.current.date(byAdding: .day , value: numberOfDays , to: date)
         guard let formattedFromDate = fromDate?.getFormattedDate(format: "yyyy-MM-dd") else { return }
         
         NetworkHelper.getAstroAlbumForTheDateRange(startDate: formattedFromDate,
@@ -80,13 +82,12 @@ class AlbumViewController: UIViewController {
 
                                                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                                                         self.present(alert, animated: true)
-                                                        print("Error in Loading APOD")
-                                                        
                                                     }
                                                     guard let response = response else  {
                                                         return
                                                     }
-                                                    self.data = response
+                                                    self.dataSource = response
+                                                    self.data = self.dataSource
                                                     self.reloadCollectionView()
         })
     }
@@ -96,21 +97,6 @@ class AlbumViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    
-    func getAndUpdateAstroPOD() {
-        NetworkHelper.getAstroPictureOfTheDay(handler: { response, error in
-            if error != nil {
-                print("Error in Loading APOD")
-            }
-            guard let response = response else  {
-                print("Inside guard statement")
-                return
-            }
-            print("Response ==== \(response)")
-        })
-        
-    }
-
     
     override func viewDidLayoutSubviews() {
           super.viewDidLayoutSubviews()
@@ -144,11 +130,15 @@ extension AlbumViewController : UICollectionViewDataSource {
             fatalError("No Astro Album header view found")
         }
         header.configureView()
+        header.delegate = self
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(AlbumDetailViewController(), animated: true)
+        
+        let detailViewController = AlbumDetailViewController()
+        detailViewController.viewModel = AstroAlbumCellViewModel(self.data[indexPath.row])
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
@@ -166,7 +156,6 @@ extension AlbumViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width / 2.2,
                       height: collectionView.bounds.width / 2.2)
-        
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -200,3 +189,26 @@ extension Date {
         return dateformat.string(from: self)
     }
 }
+
+
+extension AlbumViewController : HeaderViewDelegate {
+    func onClickReloadData(_ numberOfDays: Int) {
+        networkIndicator = NetworkActivityIndicator(title: nil, message: "Please wait...", preferredStyle: .alert)
+        self.present(self.networkIndicator, animated: false, completion: nil)
+        
+        self.getAstroAlbumData(numberOfDays: -numberOfDays)
+    }
+    
+    func didTapOnFilter(_ filterBy: FilterType) {
+        
+        self.data = self.dataSource
+        if filterBy == .image {
+            self.data = self.dataSource.filter({ $0.media_type == "image"})
+        } else if filterBy == .video {
+            self.data = self.dataSource.filter({$0.media_type == "video"})
+        }
+        self.collectionView.reloadData()
+    }
+}
+
+
