@@ -16,7 +16,7 @@ struct NetworkHelper {
         parameters :
             startDate - Date range from when we are trying to fetch the album information.
             endDate - current date of the device
-            handler - this returns [AstroAlbumModel] and Error. 
+            handler - this returns [AstroAlbumModel] and Error.
      */
     internal static func getAstroAlbumForTheDateRange(startDate:String,
                                                       endDate: String,
